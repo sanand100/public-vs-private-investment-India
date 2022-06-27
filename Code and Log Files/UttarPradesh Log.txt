@@ -1,0 +1,712 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/State Stata files/UttarPradesh Log.txt
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 May 2020, 13:46:59
+{txt}
+{com}. //use "/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/all_cleaned_labeled.dta" if s == "AP"
+. use "/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/States Data/up_finalData.dta"
+{txt}
+{com}. 
+. //deflating series
+. replace private = private/0.402567739 if year == 1996
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.428639117 if year == 1997
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.462973829 if year == 1998
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.477179697 if year == 1999
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.494572754 if year == 2000
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.510476315 if year == 2001
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.529444001 if year == 2002
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.549921826 if year == 2003
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.581407123 if year == 2004
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.614093269 if year == 2005
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.665682865 if year == 2006
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.711910667 if year == 2007
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.777363518 if year == 2008
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.83209275 if year == 2009
+{txt}(4 real changes made)
+
+{com}. replace private = private/0.91967909 if year == 2010
+{txt}(4 real changes made)
+
+{com}. replace private = private/1 if year == 2011
+{txt}(0 real changes made)
+
+{com}. replace private = private/1.079343862 if year == 2012
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.146117514 if year == 2013
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.184303363 if year == 2014
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.211300602 if year == 2015
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.249144388 if year == 2016
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.297055381 if year == 2017
+{txt}(4 real changes made)
+
+{com}. replace private = private/1.350385224 if year == 2018
+{txt}(4 real changes made)
+
+{com}. 
+. replace public = public/0.402567739 if year == 1996
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.428639117 if year == 1997
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.462973829 if year == 1998
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.477179697 if year == 1999
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.494572754 if year == 2000
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.510476315 if year == 2001
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.529444001 if year == 2002
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.549921826 if year == 2003
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.581407123 if year == 2004
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.614093269 if year == 2005
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.665682865 if year == 2006
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.711910667 if year == 2007
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.777363518 if year == 2008
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.83209275 if year == 2009
+{txt}(4 real changes made)
+
+{com}. replace public = public/0.91967909 if year == 2010
+{txt}(4 real changes made)
+
+{com}. replace public = public/1 if year == 2011
+{txt}(0 real changes made)
+
+{com}. replace public = public/1.079343862 if year == 2012
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.146117514 if year == 2013
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.184303363 if year == 2014
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.211300602 if year == 2015
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.249144388 if year == 2016
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.297055381 if year == 2017
+{txt}(4 real changes made)
+
+{com}. replace public = public/1.350385224 if year == 2018
+{txt}(4 real changes made)
+
+{com}. 
+. 
+. replace sdp = sdp/0.402567739 if year == 1996
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.428639117 if year == 1997
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.462973829 if year == 1998
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.477179697 if year == 1999
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.494572754 if year == 2000
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.510476315 if year == 2001
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.529444001 if year == 2002
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.549921826 if year == 2003
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.581407123 if year == 2004
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.614093269 if year == 2005
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.665682865 if year == 2006
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.711910667 if year == 2007
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.777363518 if year == 2008
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.83209275 if year == 2009
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/0.91967909 if year == 2010
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/1 if year == 2011
+{txt}(0 real changes made)
+
+{com}. replace sdp = sdp/1.079343862 if year == 2012
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/1.146117514 if year == 2013
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/1.184303363 if year == 2014
+{txt}(4 real changes made)
+
+{com}. replace sdp = sdp/1.211300602 if year == 2015
+{txt}(2 real changes made)
+
+{com}. replace sdp = sdp/1.249144388 if year == 2016
+{txt}(0 real changes made)
+
+{com}. replace sdp = sdp/1.297055381 if year == 2017
+{txt}(0 real changes made)
+
+{com}. replace sdp = sdp/1.350385224 if year == 2018
+{txt}(0 real changes made)
+
+{com}. 
+. 
+. 
+. //taking the log of the series to mitigate the outlying values
+. gen logpublic = log(public)
+{txt}
+{com}. label var logpublic "log(public)"
+{txt}
+{com}. 
+. gen logprivate = log(private)
+{txt}
+{com}. label var logprivate "log(private)"
+{txt}
+{com}. 
+. gen logsdp = log(sdp)
+{txt}(18 missing values generated)
+
+{com}. 
+. //creating graph of the series
+. label var qdate "Time"
+{txt}
+{com}. tsset qdate
+{res}{txt}{col 9}time variable:  {res}{col 25}qdate, 1996q1 to 2019q4
+{txt}{col 17}delta:  {res}1 quarter
+{txt}
+{com}. //graph twoway tsline logpublic logprivate logsdp, title("Private, Public, and SDP Series")
+. graph twoway tsline logpublic logprivate logsdp, title("Private investment, Public investment, and SDP: Uttar Pradesh")
+{res}{txt}
+{com}. cd "/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/State Stata files"
+{res}/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/State Stata files
+{txt}
+{com}. 
+. 
+. //ANALYSIS
+. 
+. tsset qdate, quarterly
+{res}{txt}{col 9}time variable:  {res}{col 25}qdate, 1996q1 to 2019q4
+{txt}{col 17}delta:  {res}1 quarter
+{txt}
+{com}. varsoc logprivate logpublic logsdp
+
+{txt}{col 4}Selection-order criteria
+{col 4}Sample:  {res}1997q1 - 2015q2 {txt}{col 49}Number of obs {col 68}= {res}       74
+{col 3}{text}{c TLC}{hline 4}{c TT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c TRC}
+{col 3}{text}{c |}lag{col 8}{c |}    LL  {col 18}   LR  {col 27}  df{col 32}   p  {col 39}   FPE {col 48}    AIC {col 58}   HQIC {col 68}   SBIC {col 79}{c |}
+{res}{col 3}{text}{c LT}{hline 4}{c +}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c RT}
+{col 3}{text}{c |}  0{col 8}{c |}{result}{space 1}-54.0331{col 18}{col 27}{col 32}{col 39} .000938{col 48}{space 1} 1.54143{col 58}{space 1}  1.5787{col 68}{space 1} 1.63484{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  1{col 8}{c |}{result}{space 1}  163.68{col 18}{space 1} 435.43{col 26}*{col 27}   9{col 32} 0.000{col 39} 3.3e-06{col 47}*{col 48}{space 1}-4.09945{col 57}*{col 58}{space 1} -3.9504{col 67}*{col 68}{space 1}-3.72582{col 77}*{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  2{col 8}{c |}{result}{space 1} 170.466{col 18}{space 1} 13.573{col 27}   9{col 32} 0.138{col 39} 3.5e-06{col 48}{space 1}-4.03962{col 58}{space 1}-3.77879{col 68}{space 1}-3.38577{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  3{col 8}{c |}{result}{space 1} 175.672{col 18}{space 1} 10.411{col 27}   9{col 32} 0.318{col 39} 3.9e-06{col 48}{space 1}-3.93707{col 58}{space 1}-3.56446{col 68}{space 1}-3.00299{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  4{col 8}{c |}{result}{space 1} 182.652{col 18}{space 1} 13.961{col 27}   9{col 32} 0.124{col 39} 4.2e-06{col 48}{space 1} -3.8825{col 58}{space 1} -3.3981{col 68}{space 1}-2.66819{col 79}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 4}{c BT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c BRC}
+{res}{txt}{space 3}Endogenous:  logprivate logpublic logsdp
+{space 3} Exogenous:  _cons
+
+{com}. //lag = 1
+. 
+. //check for stationarity
+. corrgram logprivate
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9} 0.9780{col 18} 0.9793{col 27} 94.729{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} 
+{txt}2     {res}{col 9} 0.9563{col 18} 0.0124{col 27} 186.27{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}3     {res}{col 9} 0.9363{col 18} 0.0739{col 27} 274.96{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}4     {res}{col 9} 0.9171{col 18} 0.0034{col 27} 360.97{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}5     {res}{col 9} 0.8906{col 18}-0.2536{col 27} 442.97{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}6     {res}{col 9} 0.8663{col 18} 0.0639{col 27} 521.42{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}7     {res}{col 9} 0.8405{col 18}-0.0615{col 27} 596.11{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.8155{col 18} 0.0317{col 27} 667.21{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}9     {res}{col 9} 0.7858{col 18}-0.0453{col 27} 733.98{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}10    {res}{col 9} 0.7571{col 18} 0.0214{col 27} 796.67{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}11    {res}{col 9} 0.7325{col 18} 0.1453{col 27} 856.06{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c LT}{hline 1}       
+{txt}12    {res}{col 9} 0.7046{col 18}-0.0424{col 27} 911.67{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c |}        
+{txt}13    {res}{col 9} 0.6637{col 18}-0.3105{col 27}  961.6{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}14    {res}{col 9} 0.6264{col 18} 0.0819{col 27} 1006.6{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c |}        
+{txt}15    {res}{col 9} 0.5903{col 18} 0.0346{col 27} 1047.1{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.5509{col 18}-0.0869{col 27} 1082.8{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}17    {res}{col 9} 0.4994{col 18}-0.2891{col 27} 1112.5{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}18    {res}{col 9} 0.4528{col 18}-0.0253{col 27} 1137.2{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}19    {res}{col 9} 0.4030{col 18}-0.2883{col 27} 1157.1{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}20    {res}{col 9} 0.3562{col 18}-0.0809{col 27} 1172.8{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}21    {res}{col 9} 0.3056{col 18}-0.1332{col 27} 1184.5{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}       {hline 1}{c RT}        
+{txt}22    {res}{col 9} 0.2587{col 18}-0.1042{col 27}   1193{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}23    {res}{col 9} 0.2182{col 18}-0.0335{col 27} 1199.1{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}24    {res}{col 9} 0.1824{col 18} 0.1422{col 27} 1203.5{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}       
+{txt}25    {res}{col 9} 0.1387{col 18}-0.1182{col 27}   1206{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}26    {res}{col 9} 0.0992{col 18}-0.0781{col 27} 1207.3{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}27    {res}{col 9} 0.0647{col 18} 0.0946{col 27} 1207.9{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}28    {res}{col 9} 0.0292{col 18}-0.1097{col 27}   1208{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}29    {res}{col 9}-0.0135{col 18}-0.1090{col 27} 1208.1{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}30    {res}{col 9}-0.0512{col 18}-0.0296{col 27} 1208.4{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9}-0.0866{col 18}-0.0696{col 27} 1209.5{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9}-0.1191{col 18}-0.0486{col 27} 1211.6{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}33    {res}{col 9}-0.1555{col 18}-0.1546{col 27} 1215.2{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}34    {res}{col 9}-0.1821{col 18} 0.1220{col 27} 1220.2{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}35    {res}{col 9}-0.2087{col 18}-0.1285{col 27}   1227{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}36    {res}{col 9}-0.2367{col 18}-0.3199{col 27} 1235.7{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}37    {res}{col 9}-0.2720{col 18}-0.1565{col 27} 1247.5{col 36}0.0000{col 44}      {hline 1}{hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}38    {res}{col 9}-0.2993{col 18}-0.2736{col 27} 1262.1{col 36}0.0000{col 44}      {hline 1}{hline 1}{c RT}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}39    {res}{col 9}-0.3208{col 18}-0.1430{col 27} 1279.1{col 36}0.0000{col 44}      {hline 1}{hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}40    {res}{col 9}-0.3382{col 18}-0.2218{col 27} 1298.3{col 36}0.0000{col 44}      {hline 1}{hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}
+{com}. //no
+. corrgram logpublic
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9} 0.9759{col 18} 0.9938{col 27} 94.323{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} 
+{txt}2     {res}{col 9} 0.9486{col 18}-0.0299{col 27} 184.38{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}3     {res}{col 9} 0.9202{col 18} 0.0269{col 27} 270.04{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}4     {res}{col 9} 0.8888{col 18} 0.0892{col 27} 350.82{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1} {col 63}        {c |}        
+{txt}5     {res}{col 9} 0.8592{col 18}-0.1218{col 27} 427.14{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}6     {res}{col 9} 0.8290{col 18} 0.0886{col 27} 498.98{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}7     {res}{col 9} 0.7992{col 18} 0.0636{col 27}  566.5{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.7612{col 18}-0.1090{col 27} 628.45{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  {col 63}        {c |}        
+{txt}9     {res}{col 9} 0.7197{col 18}-0.0427{col 27} 684.47{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c |}        
+{txt}10    {res}{col 9} 0.6793{col 18} 0.0837{col 27} 734.94{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c |}        
+{txt}11    {res}{col 9} 0.6411{col 18}-0.1325{col 27} 780.43{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}       {hline 1}{c RT}        
+{txt}12    {res}{col 9} 0.6032{col 18}-0.2594{col 27} 821.18{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}13    {res}{col 9} 0.5645{col 18} 0.0235{col 27}  857.3{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}14    {res}{col 9} 0.5253{col 18} 0.0130{col 27} 888.97{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}15    {res}{col 9} 0.4871{col 18} 0.0515{col 27} 916.52{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.4506{col 18} 0.1637{col 27}  940.4{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c LT}{hline 1}       
+{txt}17    {res}{col 9} 0.4123{col 18}-0.0443{col 27} 960.64{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}18    {res}{col 9} 0.3778{col 18} 0.1725{col 27} 977.86{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c LT}{hline 1}       
+{txt}19    {res}{col 9} 0.3432{col 18} 0.1024{col 27} 992.25{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}20    {res}{col 9} 0.3094{col 18} 0.1718{col 27} 1004.1{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c LT}{hline 1}       
+{txt}21    {res}{col 9} 0.2789{col 18}-0.0400{col 27} 1013.9{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}22    {res}{col 9} 0.2487{col 18} 0.0200{col 27} 1021.7{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}23    {res}{col 9} 0.2228{col 18} 0.1103{col 27} 1028.1{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}24    {res}{col 9} 0.1977{col 18} 0.0905{col 27} 1033.2{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}25    {res}{col 9} 0.1746{col 18} 0.0420{col 27} 1037.3{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}26    {res}{col 9} 0.1530{col 18} 0.0882{col 27} 1040.4{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}27    {res}{col 9} 0.1319{col 18} 0.0350{col 27} 1042.8{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}28    {res}{col 9} 0.1085{col 18}-0.1171{col 27} 1044.4{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}29    {res}{col 9} 0.0877{col 18} 0.1520{col 27} 1045.5{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}30    {res}{col 9} 0.0678{col 18} 0.0609{col 27} 1046.1{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9} 0.0497{col 18} 0.1182{col 27} 1046.5{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9} 0.0376{col 18} 0.0210{col 27} 1046.7{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}33    {res}{col 9} 0.0253{col 18} 0.1413{col 27} 1046.8{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}34    {res}{col 9} 0.0106{col 18}-0.2375{col 27} 1046.8{col 36}0.0000{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}35    {res}{col 9}-0.0033{col 18} 0.3496{col 27} 1046.8{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}36    {res}{col 9}-0.0181{col 18} 0.0560{col 27} 1046.9{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}37    {res}{col 9}-0.0349{col 18}-0.1378{col 27} 1047.1{col 36}0.0000{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}38    {res}{col 9}-0.0539{col 18} 0.0186{col 27} 1047.5{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}39    {res}{col 9}-0.0719{col 18} 0.1687{col 27} 1048.4{col 36}0.0000{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}40    {res}{col 9}-0.0873{col 18}-0.0970{col 27} 1049.7{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}
+{com}. //no 
+. corrgram logsdp
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9} 0.7255{col 18} 0.7506{col 27} 42.659{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}  
+{txt}2     {res}{col 9} 0.6819{col 18} 0.4066{col 27} 80.837{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c LT}{hline 1}{hline 1}{hline 1}     
+{txt}3     {res}{col 9} 0.6436{col 18} 0.2894{col 27}  115.3{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}{hline 1}   {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}4     {res}{col 9} 0.6182{col 18} 0.2716{col 27} 147.53{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}5     {res}{col 9} 0.5808{col 18} 0.2190{col 27} 176.37{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c LT}{hline 1}       
+{txt}6     {res}{col 9} 0.6196{col 18} 0.1151{col 27} 209.65{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}7     {res}{col 9} 0.5989{col 18} 0.0764{col 27} 241.17{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.5832{col 18} 0.1107{col 27} 271.49{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}9     {res}{col 9} 0.5491{col 18} 0.0165{col 27} 298.75{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}10    {res}{col 9} 0.5029{col 18}-0.0169{col 27} 321.96{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}{hline 1}    {col 63}        {c |}        
+{txt}11    {res}{col 9} 0.4789{col 18}-0.0002{col 27} 343.32{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}12    {res}{col 9} 0.4609{col 18}-0.0003{col 27}  363.4{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}13    {res}{col 9} 0.4276{col 18}-0.0181{col 27} 380.96{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}14    {res}{col 9} 0.3867{col 18}-0.0061{col 27} 395.54{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}{hline 1}     {col 63}        {c |}        
+{txt}15    {res}{col 9} 0.3635{col 18}-0.0011{col 27} 408.62{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.3456{col 18}-0.0039{col 27} 420.64{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}17    {res}{col 9} 0.3139{col 18}-0.0089{col 27} 430.72{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}18    {res}{col 9} 0.2744{col 18}-0.0004{col 27} 438.55{col 36}0.0000{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c |}        
+{txt}19    {res}{col 9} 0.2482{col 18}-0.0128{col 27} 445.06{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}20    {res}{col 9} 0.2280{col 18}-0.0080{col 27} 450.66{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}21    {res}{col 9} 0.2020{col 18} 0.0217{col 27} 455.12{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}22    {res}{col 9} 0.1616{col 18}-0.0086{col 27} 458.03{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}23    {res}{col 9} 0.1317{col 18}-0.0131{col 27}    460{col 36}0.0000{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}24    {res}{col 9} 0.1081{col 18}-0.0142{col 27} 461.35{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}25    {res}{col 9} 0.0822{col 18}-0.0058{col 27} 462.14{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}26    {res}{col 9} 0.0418{col 18}-0.0243{col 27} 462.35{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}27    {res}{col 9} 0.0121{col 18}-0.0324{col 27} 462.37{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}28    {res}{col 9}-0.0083{col 18}-0.0479{col 27} 462.38{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}29    {res}{col 9}-0.0136{col 18} 0.0691{col 27}  462.4{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}30    {res}{col 9}-0.0511{col 18} 0.0039{col 27} 462.74{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9}-0.0811{col 18} 0.0185{col 27} 463.62{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9}-0.1019{col 18} 0.0022{col 27} 465.02{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}33    {res}{col 9}-0.1182{col 18} 0.0105{col 27} 466.96{col 36}0.0000{col 44}        {c |}        {col 63}        {c |}        
+{txt}34    {res}{col 9}-0.1541{col 18} 0.0176{col 27} 470.33{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}35    {res}{col 9}-0.1809{col 18} 0.0979{col 27} 475.08{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}36    {res}{col 9}-0.1942{col 18} 0.0697{col 27} 480.68{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}37    {res}{col 9}-0.1970{col 18}-0.0841{col 27} 486.58{col 36}0.0000{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}
+{com}. //no
+. 
+. corrgram d.logprivate
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9}-0.0207{col 18}-0.0208{col 27} .04208{col 36}0.8375{col 44}        {c |}        {col 63}        {c |}        
+{txt}2     {res}{col 9}-0.0808{col 18}-0.0823{col 27} .68933{col 36}0.7085{col 44}        {c |}        {col 63}        {c |}        
+{txt}3     {res}{col 9}-0.0065{col 18}-0.0109{col 27} .69356{col 36}0.8747{col 44}        {c |}        {col 63}        {c |}        
+{txt}4     {res}{col 9} 0.2406{col 18} 0.2457{col 27} 6.5568{col 36}0.1612{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}       
+{txt}5     {res}{col 9}-0.0772{col 18}-0.0753{col 27} 7.1676{col 36}0.2085{col 44}        {c |}        {col 63}        {c |}        
+{txt}6     {res}{col 9} 0.0162{col 18} 0.0502{col 27} 7.1946{col 36}0.3032{col 44}        {c |}        {col 63}        {c |}        
+{txt}7     {res}{col 9}-0.0307{col 18}-0.0439{col 27} 7.2936{col 36}0.3990{col 44}        {c |}        {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.0857{col 18} 0.0317{col 27} 8.0722{col 36}0.4264{col 44}        {c |}        {col 63}        {c |}        
+{txt}9     {res}{col 9}-0.0640{col 18}-0.0362{col 27} 8.5115{col 36}0.4835{col 44}        {c |}        {col 63}        {c |}        
+{txt}10    {res}{col 9}-0.1247{col 18}-0.1583{col 27} 10.196{col 36}0.4235{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}11    {res}{col 9} 0.0088{col 18} 0.0302{col 27} 10.205{col 36}0.5121{col 44}        {c |}        {col 63}        {c |}        
+{txt}12    {res}{col 9} 0.3115{col 18} 0.2932{col 27} 20.979{col 36}0.0507{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c LT}{hline 1}{hline 1}      
+{txt}13    {res}{col 9}-0.1352{col 18}-0.1148{col 27} 23.033{col 36}0.0413{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}14    {res}{col 9}-0.1179{col 18}-0.0695{col 27} 24.613{col 36}0.0386{col 44}        {c |}        {col 63}        {c |}        
+{txt}15    {res}{col 9} 0.0625{col 18} 0.0507{col 27} 25.064{col 36}0.0491{col 44}        {c |}        {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.2984{col 18} 0.2320{col 27} 35.447{col 36}0.0035{col 44}        {c LT}{hline 1}{hline 1}      {col 63}        {c LT}{hline 1}       
+{txt}17    {res}{col 9}-0.1319{col 18}-0.0639{col 27} 37.502{col 36}0.0029{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}18    {res}{col 9} 0.0921{col 18} 0.1880{col 27} 38.516{col 36}0.0033{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}19    {res}{col 9}-0.0022{col 18}-0.0506{col 27} 38.517{col 36}0.0051{col 44}        {c |}        {col 63}        {c |}        
+{txt}20    {res}{col 9} 0.0845{col 18}-0.0126{col 27} 39.394{col 36}0.0060{col 44}        {c |}        {col 63}        {c |}        
+{txt}21    {res}{col 9}-0.1209{col 18}-0.0635{col 27} 41.215{col 36}0.0053{col 44}        {c |}        {col 63}        {c |}        
+{txt}22    {res}{col 9}-0.0340{col 18}-0.0987{col 27} 41.361{col 36}0.0075{col 44}        {c |}        {col 63}        {c |}        
+{txt}23    {res}{col 9}-0.1246{col 18}-0.2427{col 27} 43.348{col 36}0.0063{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}24    {res}{col 9} 0.1331{col 18} 0.0236{col 27} 45.647{col 36}0.0049{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}25    {res}{col 9}-0.1300{col 18}-0.0284{col 27} 47.872{col 36}0.0039{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}26    {res}{col 9}-0.1597{col 18}-0.1922{col 27} 51.277{col 36}0.0022{col 44}       {hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}27    {res}{col 9} 0.0525{col 18} 0.0275{col 27}  51.65{col 36}0.0029{col 44}        {c |}        {col 63}        {c |}        
+{txt}28    {res}{col 9} 0.1542{col 18} 0.0085{col 27} 54.922{col 36}0.0017{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}29    {res}{col 9}-0.1993{col 18}-0.0873{col 27} 60.467{col 36}0.0005{col 44}       {hline 1}{c RT}        {col 63}        {c |}        
+{txt}30    {res}{col 9}-0.0401{col 18}-0.0440{col 27} 60.695{col 36}0.0008{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9} 0.0062{col 18}-0.1121{col 27} 60.701{col 36}0.0011{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9} 0.0775{col 18}-0.0184{col 27}  61.58{col 36}0.0013{col 44}        {c |}        {col 63}        {c |}        
+{txt}33    {res}{col 9}-0.1804{col 18}-0.2448{col 27}  66.42{col 36}0.0005{col 44}       {hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}34    {res}{col 9} 0.0531{col 18} 0.0082{col 27} 66.846{col 36}0.0006{col 44}        {c |}        {col 63}        {c |}        
+{txt}35    {res}{col 9} 0.0166{col 18} 0.1373{col 27} 66.889{col 36}0.0009{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}36    {res}{col 9} 0.0618{col 18}-0.1070{col 27} 67.485{col 36}0.0011{col 44}        {c |}        {col 63}        {c |}        
+{txt}37    {res}{col 9}-0.0414{col 18} 0.0813{col 27} 67.757{col 36}0.0015{col 44}        {c |}        {col 63}        {c |}        
+{txt}38    {res}{col 9}-0.1214{col 18}-0.1188{col 27}  70.14{col 36}0.0012{col 44}        {c |}        {col 63}        {c |}        
+{txt}39    {res}{col 9}-0.0473{col 18}-0.0541{col 27} 70.508{col 36}0.0015{col 44}        {c |}        {col 63}        {c |}        
+{txt}40    {res}{col 9} 0.0158{col 18}-0.2629{col 27}  70.55{col 36}0.0020{col 44}        {c |}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}
+{com}. //yes
+. corrgram d.logpublic
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9} 0.0237{col 18} 0.0242{col 27} .05504{col 36}0.8145{col 44}        {c |}        {col 63}        {c |}        
+{txt}2     {res}{col 9}-0.0319{col 18}-0.0332{col 27} .15563{col 36}0.9251{col 44}        {c |}        {col 63}        {c |}        
+{txt}3     {res}{col 9}-0.0945{col 18}-0.0979{col 27} 1.0497{col 36}0.7892{col 44}        {c |}        {col 63}        {c |}        
+{txt}4     {res}{col 9} 0.0988{col 18} 0.1139{col 27} 2.0382{col 36}0.7287{col 44}        {c |}        {col 63}        {c |}        
+{txt}5     {res}{col 9}-0.0716{col 18}-0.0980{col 27}  2.563{col 36}0.7670{col 44}        {c |}        {col 63}        {c |}        
+{txt}6     {res}{col 9}-0.0688{col 18}-0.0727{col 27} 3.0528{col 36}0.8022{col 44}        {c |}        {col 63}        {c |}        
+{txt}7     {res}{col 9} 0.0704{col 18} 0.0918{col 27} 3.5724{col 36}0.8275{col 44}        {c |}        {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.0427{col 18} 0.0142{col 27} 3.7651{col 36}0.8777{col 44}        {c |}        {col 63}        {c |}        
+{txt}9     {res}{col 9}-0.0981{col 18}-0.1154{col 27} 4.7959{col 36}0.8517{col 44}        {c |}        {col 63}        {c |}        
+{txt}10    {res}{col 9} 0.0801{col 18} 0.1097{col 27} 5.4918{col 36}0.8560{col 44}        {c |}        {col 63}        {c |}        
+{txt}11    {res}{col 9} 0.1960{col 18} 0.2305{col 27} 9.7054{col 36}0.5571{col 44}        {c LT}{hline 1}       {col 63}        {c LT}{hline 1}       
+{txt}12    {res}{col 9}-0.0475{col 18}-0.0785{col 27} 9.9558{col 36}0.6198{col 44}        {c |}        {col 63}        {c |}        
+{txt}13    {res}{col 9}-0.0890{col 18}-0.0686{col 27} 10.846{col 36}0.6237{col 44}        {c |}        {col 63}        {c |}        
+{txt}14    {res}{col 9}-0.0886{col 18}-0.1010{col 27} 11.738{col 36}0.6273{col 44}        {c |}        {col 63}        {c |}        
+{txt}15    {res}{col 9}-0.1100{col 18}-0.2055{col 27} 13.132{col 36}0.5921{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}16    {res}{col 9}-0.0251{col 18} 0.0055{col 27} 13.205{col 36}0.6577{col 44}        {c |}        {col 63}        {c |}        
+{txt}17    {res}{col 9}-0.1394{col 18}-0.2088{col 27}   15.5{col 36}0.5595{col 44}       {hline 1}{c RT}        {col 63}       {hline 1}{c RT}        
+{txt}18    {res}{col 9} 0.0191{col 18}-0.1194{col 27} 15.543{col 36}0.6244{col 44}        {c |}        {col 63}        {c |}        
+{txt}19    {res}{col 9}-0.0913{col 18}-0.1832{col 27} 16.554{col 36}0.6200{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}20    {res}{col 9} 0.0709{col 18} 0.0396{col 27} 17.172{col 36}0.6418{col 44}        {c |}        {col 63}        {c |}        
+{txt}21    {res}{col 9} 0.0520{col 18}-0.0220{col 27} 17.508{col 36}0.6799{col 44}        {c |}        {col 63}        {c |}        
+{txt}22    {res}{col 9}-0.0058{col 18}-0.1100{col 27} 17.512{col 36}0.7345{col 44}        {c |}        {col 63}        {c |}        
+{txt}23    {res}{col 9}-0.0640{col 18}-0.0874{col 27} 18.037{col 36}0.7555{col 44}        {c |}        {col 63}        {c |}        
+{txt}24    {res}{col 9}-0.0023{col 18}-0.0333{col 27} 18.037{col 36}0.8012{col 44}        {c |}        {col 63}        {c |}        
+{txt}25    {res}{col 9}-0.0976{col 18}-0.0797{col 27} 19.291{col 36}0.7830{col 44}        {c |}        {col 63}        {c |}        
+{txt}26    {res}{col 9}-0.0465{col 18}-0.0245{col 27} 19.579{col 36}0.8111{col 44}        {c |}        {col 63}        {c |}        
+{txt}27    {res}{col 9} 0.0639{col 18} 0.1270{col 27} 20.132{col 36}0.8252{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}28    {res}{col 9}-0.0796{col 18}-0.1450{col 27} 21.003{col 36}0.8252{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}29    {res}{col 9}-0.0368{col 18}-0.0507{col 27} 21.192{col 36}0.8520{col 44}        {c |}        {col 63}        {c |}        
+{txt}30    {res}{col 9}-0.0850{col 18}-0.1061{col 27} 22.217{col 36}0.8460{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9} 0.1040{col 18}-0.0094{col 27} 23.773{col 36}0.8197{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9} 0.0148{col 18}-0.1314{col 27} 23.805{col 36}0.8514{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}33    {res}{col 9} 0.0999{col 18} 0.2454{col 27} 25.289{col 36}0.8293{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}34    {res}{col 9}-0.0791{col 18}-0.3469{col 27} 26.235{col 36}0.8269{col 44}        {c |}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}35    {res}{col 9} 0.0231{col 18}-0.0537{col 27} 26.317{col 36}0.8548{col 44}        {c |}        {col 63}        {c |}        
+{txt}36    {res}{col 9}-0.0442{col 18} 0.1371{col 27} 26.622{col 36}0.8726{col 44}        {c |}        {col 63}        {c LT}{hline 1}       
+{txt}37    {res}{col 9} 0.1290{col 18}-0.0228{col 27} 29.267{col 36}0.8137{col 44}        {c LT}{hline 1}       {col 63}        {c |}        
+{txt}38    {res}{col 9}-0.0767{col 18}-0.1822{col 27} 30.218{col 36}0.8117{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}39    {res}{col 9}-0.0596{col 18} 0.0915{col 27} 30.802{col 36}0.8227{col 44}        {c |}        {col 63}        {c |}        
+{txt}40    {res}{col 9}-0.0844{col 18}-0.2414{col 27} 31.994{col 36}0.8124{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}
+{com}. //yes
+. corrgram d.logsdp
+
+{txt}{col 43}-1       0       1 -1       0       1
+ LAG       AC       PAC      Q     Prob>Q  [Autocorrelation]  [Partial Autocor]
+{hline 79}
+1     {res}{col 9}-0.4839{col 18}-0.4840{col 27} 18.745{col 36}0.0000{col 44}     {hline 1}{hline 1}{hline 1}{c RT}        {col 63}     {hline 1}{hline 1}{hline 1}{c RT}        
+{txt}2     {res}{col 9}-0.0176{col 18}-0.3292{col 27} 18.771{col 36}0.0001{col 44}        {c |}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}3     {res}{col 9}-0.0307{col 18}-0.2956{col 27} 18.848{col 36}0.0003{col 44}        {c |}        {col 63}      {hline 1}{hline 1}{c RT}        
+{txt}4     {res}{col 9} 0.0287{col 18}-0.2352{col 27} 18.917{col 36}0.0008{col 44}        {c |}        {col 63}       {hline 1}{c RT}        
+{txt}5     {res}{col 9} 0.0404{col 18}-0.1060{col 27} 19.055{col 36}0.0019{col 44}        {c |}        {col 63}        {c |}        
+{txt}6     {res}{col 9}-0.0483{col 18}-0.0694{col 27} 19.254{col 36}0.0038{col 44}        {c |}        {col 63}        {c |}        
+{txt}7     {res}{col 9}-0.0136{col 18}-0.0956{col 27} 19.271{col 36}0.0074{col 44}        {c |}        {col 63}        {c |}        
+{txt}8     {res}{col 9} 0.0379{col 18}-0.0079{col 27} 19.397{col 36}0.0129{col 44}        {c |}        {col 63}        {c |}        
+{txt}9     {res}{col 9} 0.0220{col 18} 0.0251{col 27}  19.44{col 36}0.0217{col 44}        {c |}        {col 63}        {c |}        
+{txt}10    {res}{col 9}-0.0424{col 18} 0.0042{col 27} 19.604{col 36}0.0332{col 44}        {c |}        {col 63}        {c |}        
+{txt}11    {res}{col 9}-0.0155{col 18} 0.0041{col 27} 19.626{col 36}0.0507{col 44}        {c |}        {col 63}        {c |}        
+{txt}12    {res}{col 9} 0.0412{col 18} 0.0208{col 27} 19.784{col 36}0.0713{col 44}        {c |}        {col 63}        {c |}        
+{txt}13    {res}{col 9} 0.0132{col 18} 0.0084{col 27} 19.801{col 36}0.1003{col 44}        {c |}        {col 63}        {c |}        
+{txt}14    {res}{col 9}-0.0401{col 18} 0.0031{col 27} 19.956{col 36}0.1315{col 44}        {c |}        {col 63}        {c |}        
+{txt}15    {res}{col 9}-0.0140{col 18} 0.0058{col 27} 19.975{col 36}0.1729{col 44}        {c |}        {col 63}        {c |}        
+{txt}16    {res}{col 9} 0.0378{col 18} 0.0100{col 27} 20.118{col 36}0.2150{col 44}        {c |}        {col 63}        {c |}        
+{txt}17    {res}{col 9} 0.0136{col 18} 0.0016{col 27} 20.136{col 36}0.2673{col 44}        {c |}        {col 63}        {c |}        
+{txt}18    {res}{col 9}-0.0349{col 18} 0.0135{col 27} 20.262{col 36}0.3183{col 44}        {c |}        {col 63}        {c |}        
+{txt}19    {res}{col 9}-0.0156{col 18} 0.0083{col 27} 20.287{col 36}0.3775{col 44}        {c |}        {col 63}        {c |}        
+{txt}20    {res}{col 9} 0.0225{col 18}-0.0199{col 27} 20.341{col 36}0.4368{col 44}        {c |}        {col 63}        {c |}        
+{txt}21    {res}{col 9} 0.0271{col 18} 0.0101{col 27} 20.421{col 36}0.4947{col 44}        {c |}        {col 63}        {c |}        
+{txt}22    {res}{col 9}-0.0310{col 18} 0.0137{col 27} 20.527{col 36}0.5501{col 44}        {c |}        {col 63}        {c |}        
+{txt}23    {res}{col 9}-0.0162{col 18} 0.0136{col 27} 20.557{col 36}0.6081{col 44}        {c |}        {col 63}        {c |}        
+{txt}24    {res}{col 9} 0.0177{col 18} 0.0049{col 27} 20.593{col 36}0.6626{col 44}        {c |}        {col 63}        {c |}        
+{txt}25    {res}{col 9} 0.0275{col 18} 0.0212{col 27} 20.681{col 36}0.7103{col 44}        {c |}        {col 63}        {c |}        
+{txt}26    {res}{col 9}-0.0223{col 18} 0.0248{col 27}  20.74{col 36}0.7552{col 44}        {c |}        {col 63}        {c |}        
+{txt}27    {res}{col 9}-0.0221{col 18} 0.0280{col 27}   20.8{col 36}0.7956{col 44}        {c |}        {col 63}        {c |}        
+{txt}28    {res}{col 9}-0.0203{col 18}-0.0667{col 27} 20.851{col 36}0.8315{col 44}        {c |}        {col 63}        {c |}        
+{txt}29    {res}{col 9} 0.0648{col 18}-0.0004{col 27} 21.384{col 36}0.8448{col 44}        {c |}        {col 63}        {c |}        
+{txt}30    {res}{col 9}-0.0182{col 18}-0.0149{col 27} 21.426{col 36}0.8741{col 44}        {c |}        {col 63}        {c |}        
+{txt}31    {res}{col 9}-0.0216{col 18} 0.0012{col 27} 21.488{col 36}0.8984{col 44}        {c |}        {col 63}        {c |}        
+{txt}32    {res}{col 9}-0.0027{col 18}-0.0056{col 27} 21.489{col 36}0.9204{col 44}        {c |}        {col 63}        {c |}        
+{txt}33    {res}{col 9} 0.0385{col 18}-0.0094{col 27} 21.694{col 36}0.9342{col 44}        {c |}        {col 63}        {c |}        
+{txt}34    {res}{col 9}-0.0049{col 18}-0.0879{col 27} 21.697{col 36}0.9494{col 44}        {c |}        {col 63}        {c |}        
+{txt}35    {res}{col 9}-0.0302{col 18}-0.0225{col 27} 21.829{col 36}0.9598{col 44}        {c |}        {col 63}        {c |}        
+{txt}36    {res}{col 9}-0.0137{col 18} 0.0704{col 27} 21.857{col 36}0.9695{col 44}        {c |}        {col 63}        {c |}        
+{txt}
+{com}. //yes
+. 
+. varsoc logprivate logpublic logsdp
+
+{txt}{col 4}Selection-order criteria
+{col 4}Sample:  {res}1997q1 - 2015q2 {txt}{col 49}Number of obs {col 68}= {res}       74
+{col 3}{text}{c TLC}{hline 4}{c TT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c TRC}
+{col 3}{text}{c |}lag{col 8}{c |}    LL  {col 18}   LR  {col 27}  df{col 32}   p  {col 39}   FPE {col 48}    AIC {col 58}   HQIC {col 68}   SBIC {col 79}{c |}
+{res}{col 3}{text}{c LT}{hline 4}{c +}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c RT}
+{col 3}{text}{c |}  0{col 8}{c |}{result}{space 1}-54.0331{col 18}{col 27}{col 32}{col 39} .000938{col 48}{space 1} 1.54143{col 58}{space 1}  1.5787{col 68}{space 1} 1.63484{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  1{col 8}{c |}{result}{space 1}  163.68{col 18}{space 1} 435.43{col 26}*{col 27}   9{col 32} 0.000{col 39} 3.3e-06{col 47}*{col 48}{space 1}-4.09945{col 57}*{col 58}{space 1} -3.9504{col 67}*{col 68}{space 1}-3.72582{col 77}*{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  2{col 8}{c |}{result}{space 1} 170.466{col 18}{space 1} 13.573{col 27}   9{col 32} 0.138{col 39} 3.5e-06{col 48}{space 1}-4.03962{col 58}{space 1}-3.77879{col 68}{space 1}-3.38577{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  3{col 8}{c |}{result}{space 1} 175.672{col 18}{space 1} 10.411{col 27}   9{col 32} 0.318{col 39} 3.9e-06{col 48}{space 1}-3.93707{col 58}{space 1}-3.56446{col 68}{space 1}-3.00299{col 79}{text}{c |}
+{res}{col 3}{text}{c |}  4{col 8}{c |}{result}{space 1} 182.652{col 18}{space 1} 13.961{col 27}   9{col 32} 0.124{col 39} 4.2e-06{col 48}{space 1} -3.8825{col 58}{space 1} -3.3981{col 68}{space 1}-2.66819{col 79}{text}{c |}
+{res}{col 3}{text}{c BLC}{hline 4}{c BT}{hline 9}{hline 8}{hline 1}{hline 5}{hline 7}{hline 8}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 9}{hline 1}{hline 1}{c BRC}
+{res}{txt}{space 3}Endogenous:  logprivate logpublic logsdp
+{space 3} Exogenous:  _cons
+
+{com}. 
+. //johansen test for cointegration
+. vecrank logprivate logpublic logsdp, trend(constant) lags(4)
+{res}
+{txt}{center 79:Johansen tests for cointegration}
+Trend: constant{col 57}Number of obs = {res}{col 6}     74
+{txt}Sample:  {res}1997q1 - 2015q2{txt}{col 66}Lags = {res}      4
+{txt}{hline 79}
+{col 58}5%
+maximum{col 46}trace{col 55}critical
+  rank{col 11}parms{col 23}LL{col 32}eigenvalue{col 44}statistic{col 57}value
+{col 3}{res}  0{col 12}30  {col 19} 163.30561{col 33}       .{col 44}  38.6936{col 55}  29.68
+{col 3}  1{col 12}35  {col 19}  176.6814{col 33} 0.30337{col 44}  11.9420{help vecrankstar##|_new:*}{col 55}  15.41
+{col 3}  2{col 12}38  {col 19}  182.5779{col 33} 0.14731{col 44}   0.1490{col 55}   3.76
+{col 3}  3{col 12}39  {col 19} 182.65243{col 33} 0.00201
+{txt}{hline 79}
+
+{com}. //rank = 1 --> I(1) series so need to do VAR
+. 
+. vec logprivate logpublic logsdp, trend(constant) lags(4)
+
+{res}{txt}Vector error-correction model
+
+{col 1}Sample:  {res}1997q1 - 2015q2 {txt}{col 49}Number of obs{col 67}= {res}        74
+{txt}{col 49}AIC{col 67}=  {res}-3.829227
+{txt}Log likelihood = {res} 176.6814{txt}{col 49}HQIC{col 67}=  {res}-3.394508
+{txt}Det(Sigma_ml){col 16}= {res} 1.69e-06{txt}{col 49}SBIC{col 67}=  {res}-2.739467
+
+{col 1}{text}Equation        {col 18}  Parms{col 26}     RMSE {col 37}   R-sq  {col 47}   chi2   {col 58} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{col 1}{text}D_logprivate    {col 18}{result}    11{col 26}{space 2} .123961{col 37}{space 1} 0.1432{col 47} 10.53243{col 58} 0.4832
+{col 1}{text}D_logpublic     {col 18}{result}    11{col 26}{space 2} .081125{col 37}{space 1} 0.2646{col 47} 22.66597{col 58} 0.0197
+{col 1}{text}D_logsdp        {col 18}{result}    11{col 26}{space 2} .174025{col 37}{space 1} 0.5773{col 47} 86.05124{col 58} 0.0000
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 10}{hline 11}{hline 7}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_logprivate {txt}{c |}
+{space 8}_ce1 {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0131766{col 26}{space 2} .0462338{col 37}{space 1}   -0.28{col 46}{space 3}0.776{col 54}{space 4}-.1037932{col 67}{space 3} .0774401
+{txt}{space 12} {c |}
+{space 2}logprivate {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0551808{col 26}{space 2}  .138476{col 37}{space 1}    0.40{col 46}{space 3}0.690{col 54}{space 4}-.2162272{col 67}{space 3} .3265888
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1944735{col 26}{space 2} .1291976{col 37}{space 1}   -1.51{col 46}{space 3}0.132{col 54}{space 4}-.4476961{col 67}{space 3} .0587491
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0448593{col 26}{space 2} .1304184{col 37}{space 1}    0.34{col 46}{space 3}0.731{col 54}{space 4} -.210756{col 67}{space 3} .3004746
+{txt}{space 12} {c |}
+{space 3}logpublic {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.1231439{col 26}{space 2} .1898349{col 37}{space 1}   -0.65{col 46}{space 3}0.517{col 54}{space 4}-.4952134{col 67}{space 3} .2489256
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}  .487618{col 26}{space 2} .1902071{col 37}{space 1}    2.56{col 46}{space 3}0.010{col 54}{space 4} .1148189{col 67}{space 3} .8604172
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1624335{col 26}{space 2} .1846377{col 37}{space 1}   -0.88{col 46}{space 3}0.379{col 54}{space 4}-.5243168{col 67}{space 3} .1994498
+{txt}{space 12} {c |}
+{space 6}logsdp {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.1102674{col 26}{space 2} .1320359{col 37}{space 1}   -0.84{col 46}{space 3}0.404{col 54}{space 4} -.369053{col 67}{space 3} .1485183
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1266397{col 26}{space 2} .1102859{col 37}{space 1}   -1.15{col 46}{space 3}0.251{col 54}{space 4}-.3427962{col 67}{space 3} .0895168
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} -.095095{col 26}{space 2} .0858453{col 37}{space 1}   -1.11{col 46}{space 3}0.268{col 54}{space 4}-.2633488{col 67}{space 3} .0731587
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0211897{col 26}{space 2}  .016417{col 37}{space 1}    1.29{col 46}{space 3}0.197{col 54}{space 4} -.010987{col 67}{space 3} .0533664
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_logpublic  {txt}{c |}
+{space 8}_ce1 {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0101925{col 26}{space 2} .0302572{col 37}{space 1}   -0.34{col 46}{space 3}0.736{col 54}{space 4}-.0694955{col 67}{space 3} .0491106
+{txt}{space 12} {c |}
+{space 2}logprivate {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.0206477{col 26}{space 2} .0906241{col 37}{space 1}   -0.23{col 46}{space 3}0.820{col 54}{space 4}-.1982676{col 67}{space 3} .1569722
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0514999{col 26}{space 2} .0845519{col 37}{space 1}   -0.61{col 46}{space 3}0.542{col 54}{space 4}-.2172186{col 67}{space 3} .1142187
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0187387{col 26}{space 2} .0853508{col 37}{space 1}    0.22{col 46}{space 3}0.826{col 54}{space 4}-.1485459{col 67}{space 3} .1860232
+{txt}{space 12} {c |}
+{space 3}logpublic {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .1087651{col 26}{space 2} .1242353{col 37}{space 1}    0.88{col 46}{space 3}0.381{col 54}{space 4}-.1347315{col 67}{space 3} .3522618
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} .1206902{col 26}{space 2} .1244789{col 37}{space 1}    0.97{col 46}{space 3}0.332{col 54}{space 4} -.123284{col 67}{space 3} .3646643
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.0671261{col 26}{space 2} .1208341{col 37}{space 1}   -0.56{col 46}{space 3}0.579{col 54}{space 4}-.3039566{col 67}{space 3} .1697043
+{txt}{space 12} {c |}
+{space 6}logsdp {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.0204338{col 26}{space 2} .0864094{col 37}{space 1}   -0.24{col 46}{space 3}0.813{col 54}{space 4}-.1897931{col 67}{space 3} .1489255
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1930433{col 26}{space 2} .0721754{col 37}{space 1}   -2.67{col 46}{space 3}0.007{col 54}{space 4}-.3345044{col 67}{space 3}-.0515821
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.1102447{col 26}{space 2} .0561805{col 37}{space 1}   -1.96{col 46}{space 3}0.050{col 54}{space 4}-.2203564{col 67}{space 3}-.0001329
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0253286{col 26}{space 2} .0107439{col 37}{space 1}    2.36{col 46}{space 3}0.018{col 54}{space 4} .0042709{col 67}{space 3} .0463862
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}D_logsdp     {txt}{c |}
+{space 8}_ce1 {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}   .33051{col 26}{space 2} .0649061{col 37}{space 1}    5.09{col 46}{space 3}0.000{col 54}{space 4} .2032964{col 67}{space 3} .4577237
+{txt}{space 12} {c |}
+{space 2}logprivate {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2}-.2196749{col 26}{space 2} .1944018{col 37}{space 1}   -1.13{col 46}{space 3}0.258{col 54}{space 4}-.6006953{col 67}{space 3} .1613456
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.1452238{col 26}{space 2} .1813761{col 37}{space 1}   -0.80{col 46}{space 3}0.423{col 54}{space 4}-.5007144{col 67}{space 3} .2102668
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}-.3572647{col 26}{space 2} .1830899{col 37}{space 1}   -1.95{col 46}{space 3}0.051{col 54}{space 4}-.7161144{col 67}{space 3} .0015849
+{txt}{space 12} {c |}
+{space 3}logpublic {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .2413763{col 26}{space 2} .2665027{col 37}{space 1}    0.91{col 46}{space 3}0.365{col 54}{space 4}-.2809594{col 67}{space 3} .7637119
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2} -.270461{col 26}{space 2} .2670253{col 37}{space 1}   -1.01{col 46}{space 3}0.311{col 54}{space 4} -.793821{col 67}{space 3}  .252899
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2}  .090088{col 26}{space 2} .2592066{col 37}{space 1}    0.35{col 46}{space 3}0.728{col 54}{space 4}-.4179476{col 67}{space 3} .5981237
+{txt}{space 12} {c |}
+{space 6}logsdp {c |}
+{space 9}LD. {c |}{col 14}{res}{space 2} .0322793{col 26}{space 2} .1853607{col 37}{space 1}    0.17{col 46}{space 3}0.862{col 54}{space 4}-.3310211{col 67}{space 3} .3955797
+{txt}{space 8}L2D. {c |}{col 14}{res}{space 2}-.0149519{col 26}{space 2} .1548267{col 37}{space 1}   -0.10{col 46}{space 3}0.923{col 54}{space 4}-.3184066{col 67}{space 3} .2885028
+{txt}{space 8}L3D. {c |}{col 14}{res}{space 2} .0170293{col 26}{space 2} .1205153{col 37}{space 1}    0.14{col 46}{space 3}0.888{col 54}{space 4}-.2191764{col 67}{space 3}  .253235
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0016259{col 26}{space 2} .0230472{col 37}{space 1}    0.07{col 46}{space 3}0.944{col 54}{space 4}-.0435458{col 67}{space 3} .0467976
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+Cointegrating equations
+{res}
+{col 1}{text}Equation        {col 18}  Parms{col 26}   chi2   {col 37} P>chi2
+{res}{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 7}
+{col 1}{text}_ce1            {col 18}{result}     2{col 26} 139.3058{col 37} 0.0000
+{col 1}{text}{hline 17}{hline 8}{hline 11}{hline 7}
+{res}
+{txt}Identification:  beta is exactly identified
+
+{col 18}Johansen normalization restriction imposed
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        beta{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}_ce1         {txt}{c |}
+{space 2}logprivate {c |}{col 14}{res}{space 2}        1{col 26}{space 2}        .{col 37}{space 1}       .{col 46}{space 3}    .{col 54}{space 4}        .{col 67}{space 3}        .
+{txt}{space 3}logpublic {c |}{col 14}{res}{space 2} .5731091{col 26}{space 2} .2747198{col 37}{space 1}    2.09{col 46}{space 3}0.037{col 54}{space 4} .0346681{col 67}{space 3}  1.11155
+{txt}{space 6}logsdp {c |}{col 14}{res}{space 2}-3.312808{col 26}{space 2} .4957817{col 37}{space 1}   -6.68{col 46}{space 3}0.000{col 54}{space 4}-4.284522{col 67}{space 3}-2.341093
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 21.87311{col 26}{space 2}        .{col 37}{space 1}       .{col 46}{space 3}    .{col 54}{space 4}        .{col 67}{space 3}        .
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. irf create var1, step(20) set(myirf) replace
+{txt}(file myirf.irf now active)
+(file myirf.irf updated)
+
+{com}. irf graph oirf, impulse(logpublic logprivate) response(logprivate logpublic) yline(0,lcolor(black)) xlabel(0(4)20) byopts(yrescale)
+{res}{txt}
+{com}. 
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/shraddhaanand/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data/State Stata files/UttarPradesh Log.txt
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 May 2020, 13:47:06
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

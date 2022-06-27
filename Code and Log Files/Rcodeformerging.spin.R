@@ -1,0 +1,398 @@
+library(haven)
+library(tidyverse)
+library(zoo)
+library(data.table)
+library(magrittr)
+library(stringr)
+library(ggplot2)
+library(dygraphs)
+library(vars)
+
+setwd("~/Documents/Classes/Spring 2020/MIT 14.33/Homework/Data")
+costs <- read_dta("./Project_cost.dta")
+details <- read_dta("./Project_details.dta")
+events <- read_dta("./Project_events.dta")
+completion <- read_dta("./Project_completion_details.dta")
+location <- read_dta("./Project_location.dta")
+
+d <- costs %>% 
+  full_join(details, by = c("company", "companycode", "projectnumber")) %>% #select(-ends_with(".y")) %>%
+  full_join(events, by = c("company", "companycode", "projectnumber")) %>% #select(-ends_with(".y")) %>%
+  full_join(location, by = c("company", "companycode", "projectnumber")) %>% #select(-ends_with(".y")) %>%
+  full_join(completion, by = c("company", "companycode", "projectnumber"))# %>%
+  #select(-ends_with(".y")) #, -ends_with(".x"))
+
+
+names(d)[names(d) == "costofprojectrsmillion"] <- "costofproject"
+names(d)[names(d) == "completiondate.y"] <- "completiondate"
+
+##dropping projects which have been abandoned, shelved, or stalled:
+d <- d[d$projectstatus != "Abandoned" & d$projectstatus != "Shelved" & d$projectstatus != "Announced & Stalled" & d$projectstatus != "Implementation Stalled",]
+
+##creating a indicator column of public/private company
+d$public <- rep(0, nrow = nrow(d))
+publiclist <- c("ACC Group", "State Govt. - Departmental Undertaking", "Gujarat Telephone Cables Group", "State Govt. - Statutory Bodies","Co-operative Sector",
+           "State Govt. - Commercial Enterprises", "Government Local Bodies", "Central Govt. - Statutory Bodies", "Government",
+           "Central Government", "Central Govt. - Departmental Undertaking", "State Electricity Boards", "State Road Transports",
+           "Central Government - Takenover Enterprises", "State Government", "State and Private sector", "Central Govt. - Management",
+           "Joint Sector", "State Housing Boards", "IDFC Group", "Central & State Governments", "State Govt. - Management",
+           "L.I.C. Group", "HP Group", "Punjab National Bank Group", "State Bank of India Group", "Bank of Baroda Group", 
+           "Bank of India Group")
+for (i in publiclist){
+  d$public[d$ownership == i] <- 1 
+}
+
+##creating new vector of start of project events and complete of project events
+d$event_new <- rep(0, nrow = nrow(d))
+d$event_new[d$event == "Date of announcement"] <- "date of announcement"
+d$event_new[d$event == "Implementation started"] <- "implementation started"
+d$event_new[d$event == "Construction commenced"] <- "construction commenced"
+d$event_new[d$event == "Completed"] <- "completed"
+d$event_new[d$event == "Construction completed"] <- "construction completed"
+
+d$doa <- rep(NA, nrow = nrow(d))
+d$doa [d$event_new == "date of announcement"] <- d$eventdate [ d$event_new == "date of announcement"]
+d$is <- rep(NA, nrow = nrow(d))
+d$is [d$event_new == "implementation started"] <- d$eventdate[d$event_new == "implementation started"]
+d$cc <- rep(NA, nrow = nrow(d))
+d$cc [d$event_new == "construction commenced"] <- d$eventdate[d$event_new == "construction commenced"]
+
+d$comp <- rep(NA, nrow = nrow(d))
+d$comp [d$event_new == "completed"] <- d$eventdate[d$event_new == "completed"]
+d$concomp <- rep(NA, nrow = nrow(d))
+d$concomp [d$event_new == "construction completed"] <- d$eventdate[d$event_new == "construction completed"]
+d$completed <- as.double(d$completiondate)
+
+
+##dropping all other rows of data which have other event dates
+d <- d[!is.na(d$event_new), ]
+
+##deleting columns dateofcostofproject and costofproject since these are projected cost. Keeping costrsmillion since that is real cost of project.
+#d <- d[, - c(4,5)]
+
+##removing duplicate rows
+d <- d[!duplicated(d), ]
+
+# ##This is not working. I am just trying to collapse everything to one single line per company and project.
+# D <- d %>% group_by(company, companycode, projectnumber, projectname, costrsmillion, district, districtcode, state, public) %>% 
+#   summarise_at(vars(doa[doa<0], doa[doa>=0], is[is<0], is[is>=0], cc[cc<0], cc[cc>=0], comp[comp<0], comp[comp>=0], concomp[concomp<0], concomp[concomp>=0]), 
+#                funs(min, max,min, max,min, max,min, max,min, max))
+
+D <- d %>% group_by(company, companycode, projectnumber, projectname, costrsmillion,, state, public) 
+
+#%>% summarise_at(vars(doa, is, cc, comp, concomp, completed), min)
+
+
+# #creating startdate and enddate for projects
+D <- data.table(D)
+D$startdate <- rep(0, nrow(D))
+D$enddate <- rep(0, nrow(D))
+
+
+##creating start date and end date variables
+D[doa != 0, startdate:= doa]
+D[is != 0 & startdate == 0, startdate:= is]
+D[cc != 0 & startdate == 0, startdate:= cc]
+
+D[comp != 0, enddate:= comp]
+D[comp == 0 & concomp != 0, enddate:= concomp]
+D[enddate == 0, enddate:= completed]
+
+##converting from double to date
+D$startdate[D$startdate == 0] <- NA
+D$enddate[D$enddate == 0] <- NA
+D[ ,startdate:= as.Date(startdate, origin = "1970-01-01")]
+D[ ,enddate:= as.Date(enddate, origin = "1970-01-01")] 
+
+##deleting unnecessary columns for date
+ D <- subset(D, select = -c(dateofcostofproject, costofproject, ownership, projectstatus, completiondate, eventdate, event, projectname, 
+                            location, district, districtcode, longitudelatitude, description, event_new,
+                            doa, is, cc, comp, concomp, completed))
+
+# D <- subset(D, select = -c(dateofcostofproject, costofproject, ownership, projectstatus, completiondate, projectname, 
+#                            location, district, districtcode, longitudelatitude, description, event_new,
+#                           comp, concomp, completed))
+
+D<- D[!duplicated(D), ]
+D <- D[!is.na(D$startdate), ]
+D <- D[!is.na(D$enddate), ]
+
+
+D <- D %>% group_by(company, companycode, projectnumber, costrsmillion, state, public) %>% summarise_at(vars(startdate, enddate), min)
+
+##deleting rows with missing costs, start dates, or end dates
+D <- D[!is.na(D$costrsmillion), ]
+
+##deleting observations who have startdate past 2019 as it seems unreliable
+# D<- D[D$startdate <= "2020-01-01",]
+
+##rewriting start and end date as quarters
+D$startdate <- as.yearqtr(D$startdate, format = "%Y-%m-%d")
+D$enddate <- as.yearqtr(D$enddate, format = "%Y-%m-%d")
+
+##creating project duration variables --> (enddate - startdate)
+D$duration <- difftime(D$enddate, D$startdate, units = "weeks")
+##how many quarters for this project, rounded to a whole number
+D$numquarters <- round((D$duration / 13), 0)
+D$numquarters <- as.integer(D$numquarters)
+
+##cost per quarter
+D$costquarter <- D$costrsmillion/D$numquarters
+D <- D[!D$duration == 0, ]
+
+
+
+##converting dates to integer values for ease of calculation
+quarter.number <- function(x) {
+  y <- x %>%
+    str_remove("Q") %>%
+    str_split(" ", simplify = T) %>%
+    apply(2, as.numeric)
+  
+  4 * (y[, 1]-2000) + (y[,2] - 1) ##4(year - 2000) - (quarter + 1)
+}
+
+
+
+##function to expand each project
+explode <- function(x) {
+  # Do some renaming for brevity.
+  X <- x[, .(c = companycode, n = projectnumber, s = state, A = startdate, B = enddate, p = public, k = costquarter)]
+  X[, `:=`(A = quarter.number(A), B = quarter.number(B) - 1)]
+  Z <- X[, data.table(q = A:B, k=k, p=p), by=.(c,n,s)]
+  
+  Z <- Z[, .(companycode = c, projectnumber = n, state = s, quarter=q, public=p, costquarter=k)]
+  return(Z)
+}
+
+##new dataset to be used.
+X <-  data.table(D) %>% explode
+X <- X[, .(total=sum(costquarter)), by=.(state, quarter, public)]
+
+##making quarter variable back to date variable from an integer variable
+quarter <- X$quarter
+test <- (quarter / 4) + 2000
+
+test <- str_split(test, "[.]", simplify = TRUE)
+Quarter_label <- rep(NA, nrow(X))
+dateasyearmonth <- rep(NA, nrow(X))
+monthlabel <- rep(NA, nrow(X))
+for (i in 1:nrow(X)){
+  if (test[i,2] == ""){
+    #Quarter_label[i] <- "Q1"
+    #dateasyearmonth <- paste(test[i,],"01")
+    monthlabel[i] <- "01"
+  } else if (test[i,2] == "25"){
+    #Quarter_label[i] <- "Q2"
+    #dateasyearmonth <- paste(test[i,],"04")
+    monthlabel[i] <- "04"
+  } else if (test[i,2] == "5"){
+    #Quarter_label[i] <- "Q3"
+    #dateasyearmonth <- paste(test[i,],"07")
+    monthlabel[i] <- "07"
+  } else if (test[i,2] == "75"){
+    #Quarter_label[i] <- "Q4"
+    #dateasyearmonth <- paste(test[i,],"11")
+    monthlabel[i] <- "11"
+  }
+}
+
+dateasyearmonth <- rep(NA, nrow(X))
+for (i in 1:nrow(X)){
+  dateasyearmonth[i] <- paste(year[i], monthlabel[i])
+}
+
+search_dateasyearmonth <- ' '
+replace_dateasyearmonth <- ''
+dateasyearmonth <- sub(search_dateasyearmonth, replace_dateasyearmonth, dateasyearmonth)
+
+time <- as.yearqtr(dateasyearmonth, "%Y%m")
+
+##fixing public investment and private investment series
+state <- X$state
+
+# aptest <- X[X$state == "Andhra Pradesh"]
+# aptest$publicinv <- rep(NA, nrow(aptest))
+# aptest$privateinv <- rep(NA, nrow(aptest))
+# for (i in 1:nrow(aptest)){
+#   if (aptest$public[i] == 1){
+#     aptest$publicinv[i] <- aptest$total[i]
+#   }
+# }
+# 
+# for (i in 1:nrow(aptest)){
+#   if (aptest$public[i] == 0){
+#     aptest$privateinv[i] <- aptest$total[i]
+#   }
+# }
+
+df_1 <- data.frame(time = time, state = state, public = X$public, total = X$total)
+
+
+df_1$publicinvestment <- rep(0, nrow(df_1))
+for (i in 1:nrow(X)){
+  if (df_1$public[i] == 1){
+    df_1$publicinvestment[i] <- df_1$total[i]
+  }
+}
+#publicinvestment[X$public == 1] <- X$total[X$public == 1]
+
+df_1$privateinvestment <- rep(0, nrow(X))
+for (i in 1:nrow(df_1)){
+  if (df_1$public[i] == 0){
+    df_1$privateinvestment[i] <- df_1$total[i]
+  }
+}
+
+df_1 <- df_1[,-c(3:4)]
+# aptest <- df_1[df_1$state == "Andhra Pradesh",]
+# aptest1 <- aptest %>% group_by(time, state) %>% summarise_at(vars(publicinvestment, privateinvestment), max)
+
+##final dataset to use -- all states
+df <- df_1 %>% group_by(time, state) %>% summarise_at(vars(publicinvestment, privateinvestment), max)
+
+
+#df <- data.frame(time = time, private = privateinvestment, public = publicinvestment, state = state)
+
+##removing observations with state missing
+df <- df[!is.na(df$state),]
+df <- df[!df$state == "",]
+df <- df[!df$state == "MR",]
+
+df$publicinvestment [df$publicinvestment == 0] <- NA
+df$privateinvestment [df$privateinvestment == 0] <- NA
+
+names(df)[names(df) == "publicinvestment"] <- "public"
+names(df)[names(df) == "privateinvestment"] <- "private"
+
+##dropping observations for date past 2019 Q4
+df <- subset(df, time <= "2019 Q4")
+
+##creating separate datasets for each state
+an <- data.table(df[df$state == "Andaman & Nicobar",])
+ap <- data.table(df[df$state == "Andhra Pradesh",])
+arunpra <- data.table(df[df$state == "Arunachal Pradesh",])
+assam <- data.table(df[df$state == "Assam",])
+bih <- data.table(df[df$state == "Bihar",])
+chan  <- data.table(df[df$state == "Chandigarh",])
+chhat  <- data.table(df[df$state == "Chhattisgarh",])
+dadra <- data.table(df[df$state == "Dadra & Nagar Haveli",])
+dd <- data.table(df[df$state == "Daman & Diu",])
+goa  <- data.table(df[df$state == "Goa",])
+guj  <- data.table(df[df$state == "Gujarat",])
+har  <- data.table(df[df$state == "Haryana",])
+hp  <- data.table(df[df$state == "Himachal Pradesh",])
+jk  <- data.table(df[df$state == "Jammu & Kashmir",])
+jha  <- data.table(df[df$state == "Jharkhand",])
+kar  <- data.table(df[df$state == "Karnataka",])
+ker  <- data.table(df[df$state == "Kerala",])
+lak  <- data.table(df[df$state == "Lakshadweep",])
+mp  <- data.table(df[df$state == "Madhya Pradesh",])
+mah  <- data.table(df[df$state == "Maharashtra",])
+mani  <- data.table(df[df$state == "Manipur",])
+meg  <- data.table(df[df$state == "Meghalaya",])
+miz  <- data.table(df[df$state == "Mizoram",])
+nag  <- data.table(df[df$state == "Nagaland",])
+del  <- data.table(df[df$state == "NCT of Delhi",])
+odi  <- data.table(df[df$state == "Odisha",])
+pud  <- data.table(df[df$state == "Puducherry",])
+pun  <- data.table(df[df$state == "Punjab",])
+raj  <- data.table(df[df$state == "Rajasthan",])
+sik  <- data.table(df[df$state == "Sikkim",])
+tn  <- data.table(df[df$state == "Tamil Nadu",])
+tel  <- data.table(df[df$state == "Telangana",])
+tri  <- data.table(df[df$state == "Tripura",])
+up  <- data.table(df[df$state == "Uttar Pradesh",])
+utt  <- data.table(df[df$state == "Uttarakhand",])
+wb  <- data.table(df[df$state == "West Bengal",])
+
+stateabb <- c("ap","arunpra","assam","bih","chan","chhat","dadra","dd","goa","guj","har","hp",
+              "jk","jha","kar","ker","lak","mp","mah","mani","meg","miz","nag","del","odi",
+              "pud","pun","raj","sik","tn","tel","up","utt","wb")
+
+
+
+
+# Bihar <- data.table(Bihar)
+# M <- data.table(M)
+# df <- data.table(df)
+# 
+
+# 
+# 
+# ggplot(AN_small, aes(x = AN$time, y = AN$public)) + geom_line() + xlab("")
+# 
+# AN_small <- AN[,-2]
+# AN_small$public[is.na(AN_small$public)] <- 0
+# AN_small<- AN_small[!AN_small$public == 0,]
+# 
+# AN_test <- AN
+# AN_test$public[is.na(AN_small$public)] <- 0
+# AN_test$private[is.na(AN_small$private)] <- 0
+
+# all <- dygraph(df[,-4]) %>% dyAxis("x", label = "Quarter") %>% dyAxis("y", label = "Cost (Millions Rs.)")
+# all
+
+###plotting time series for states
+library(htmltools)
+dy_graph <- list(
+  dygraphs::dygraph(ap, main="Andhra Pradesh"),
+  dygraphs::dygraph(arunpra, main="Arunachal Pradesh"),
+  dygraphs::dygraph(assam, main="Assam"),
+  dygraphs::dygraph(bih, main="Bihar"),
+  dygraphs::dygraph(chan, main="Chandigarh"),
+  dygraphs::dygraph(chhat, main="Chhatisgarh"),
+  dygraphs::dygraph(dadra, main="Dadra & Nagar Haveli"),
+  dygraphs::dygraph(dd, main="Daman & Diu"),
+  dygraphs::dygraph(goa, main="Goa"),
+  dygraphs::dygraph(guj, main="Gujarat"),
+  dygraphs::dygraph(har, main="Haryana"),
+  dygraphs::dygraph(hp, main="Himachal Pradesh"),
+  dygraphs::dygraph(jk, main="Jammu & Kahmir"),
+  dygraphs::dygraph(jha, main="Jharkhand"),
+  dygraphs::dygraph(kar, main="Karnataka"),
+  dygraphs::dygraph(ker, main="Kerala"),
+  dygraphs::dygraph(lak, main="Lakshadweep"),
+  dygraphs::dygraph(mp, main="Madhya Pradesh"),
+  dygraphs::dygraph(mah, main="Maharasthra"),
+  dygraphs::dygraph(mani, main="Manipur"),
+  dygraphs::dygraph(meg, main="Megalya"),
+  dygraphs::dygraph(miz, main="Mizoram"),
+  dygraphs::dygraph(nag, main="Nagaland"),
+  dygraphs::dygraph(del, main="Delhi"),
+  dygraphs::dygraph(odi, main="Odisha"),
+  dygraphs::dygraph(pud, main="Puducherry"),
+  dygraphs::dygraph(pun, main="Punjab"),
+  dygraphs::dygraph(raj, main="Rajasthan"),
+  dygraphs::dygraph(sik, main="Sikkim"),
+  dygraphs::dygraph(tn, main="Tamil Nadu"),
+  dygraphs::dygraph(tel, main="Telangana"),
+  dygraphs::dygraph(up, main="Uttar Pradesh"),
+  dygraphs::dygraph(utt, main="Uttarakhand"),
+  dygraphs::dygraph(wb, main="West Bengal")
+  ) 
+
+htmltools::browsable(htmltools::tagList(dy_graph))
+
+##summary tables for states
+statelist <- c(ap,arunpra,assam,bih,chan,chhat,dadra,dd,goa,guj,har,hp,
+                  jk,jha,kar,ker,lak,mp,mah,mani,meg,miz,nag,del,odi,
+                  pud,pun,raj,sik,tn,tel,up,utt,wb)
+
+summary.table(ap)
+
+
+d %>% select(completiondate, comp, concomp, completed) %>% unique %>%  View
+
+plot(ap$time, ap$public, col = "red", type = "l", ylim = c(0,100000))
+points(ap$time, ap$private, col = "yellow", type = "l")
+
+
+write_dta(firms, "./firms.dta")
+write.csv(AndamanNicobar, "./AndamanNicobar.csv")
+write_dta(AN, "./AN.dta")
+write_dta(df, "./all.dta")
+write.csv(df, "./all.csv")
+
+
+
